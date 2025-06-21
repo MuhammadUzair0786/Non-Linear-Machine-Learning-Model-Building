@@ -36,6 +36,56 @@ This notebook demonstrates how to use Decision Tree algorithms for both classifi
 - They can overfit, so consider tuning parameters like `max_depth` for better generalization.
 - No scaling or normalization is required for Decision Trees.
 
+# Decision Tree Pruning: Pre-Pruning & Post-Pruning
+
+This notebook demonstrates how to control overfitting in Decision Tree models using **pre-pruning** and **post-pruning** techniques.
+
+## What is Pruning?
+Pruning is the process of reducing the size of a decision tree to prevent overfitting and improve generalization on unseen data.
+
+---
+
+## Pre-Pruning (Early Stopping)
+- **Definition:**  
+  Pre-pruning stops the tree from growing once a certain condition is met (e.g., maximum depth, minimum samples per leaf).
+- **How to Apply:**  
+  Set parameters like `max_depth`, `min_samples_split`, or `min_samples_leaf` when creating the DecisionTree model.
+- **Benefit:**  
+  Prevents the tree from becoming too complex and overfitting the training data.
+
+**Example:**  
+```python
+from sklearn.tree import DecisionTreeClassifier
+model = DecisionTreeClassifier(max_depth=3, random_state=42)
+model.fit(x_train, y_train)
+```
+
+---
+
+## Post-Pruning (Cost Complexity Pruning)
+- **Definition:**  
+  Post-pruning allows the tree to grow fully and then prunes back branches that have little importance, usually based on validation performance.
+- **How to Apply:**  
+  You can use a loop to train trees with different `max_depth` values and select the best one based on test/validation score, or use `ccp_alpha` parameter for cost complexity pruning.
+- **Benefit:**  
+  Finds the optimal tree size after seeing the full data, often leading to better generalization.
+
+**Example:**  
+```python
+for i in range(1, 20):
+    model = DecisionTreeClassifier(max_depth=i, random_state=42)
+    model.fit(x_train, y_train)
+    print(f"Max Depth: {i}, Train Score: {model.score(x_train, y_train):.2f}, Test Score: {model.score(x_test, y_test):.2f}")
+
+## Notes
+- Pruning helps avoid overfitting and improves model performance on new data.
+- Always compare train and test scores to check for overfitting or underfitting.
+- Visualize the effect of pruning parameters to select the best model.
+
+---
+
+This notebook is a practical guide for understanding and applying pre-pruning and post-pruning in decision
+
 ## Requirements
 - Python 3.x
 - pandas
