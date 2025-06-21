@@ -86,6 +86,33 @@ for i in range(1, 20):
 
 This notebook is a practical guide for understanding and applying pre-pruning and post-pruning in decision
 
+# K-Nearest Neighbour (KNN) Classification
+
+This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm for classification tasks using Python and scikit-learn.
+
+## What is KNN?
+- KNN is a simple, non-parametric algorithm used for classification and regression.
+- It predicts the class of a data point based on the majority class among its 'k' nearest neighbors in the feature space.
+
+## Steps Covered
+
+- Load and explore the dataset.
+- Visualize the data distribution using scatter plots.
+- Split the data into training and testing sets.
+- Train KNN classifiers with different values of 'k' to find the best accuracy.
+- Evaluate model performance using train and test scores.
+- Make predictions for new data points.
+- Encode categorical labels for visualization.
+- Plot decision boundaries to visualize how KNN separates different classes.
+
+## Notes
+
+- KNN works well with small to medium-sized datasets.
+- Feature scaling is recommended for KNN, but in this example, original features are used.
+- The value of 'k' (number of neighbors) can significantly affect model performance.
+
+
+
 ## Requirements
 - Python 3.x
 - pandas
