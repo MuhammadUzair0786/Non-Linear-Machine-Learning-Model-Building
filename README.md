@@ -36,14 +36,14 @@ This notebook demonstrates how to use Decision Tree algorithms for both classifi
 - They can overfit, so consider tuning parameters like `max_depth` for better generalization.
 - No scaling or normalization is required for Decision Trees.
 
+---
+
 # Decision Tree Pruning: Pre-Pruning & Post-Pruning
 
 This notebook demonstrates how to control overfitting in Decision Tree models using **pre-pruning** and **post-pruning** techniques.
 
 ## What is Pruning?
 Pruning is the process of reducing the size of a decision tree to prevent overfitting and improve generalization on unseen data.
-
----
 
 ## Pre-Pruning (Early Stopping)
 - **Definition:**  
@@ -60,8 +60,6 @@ model = DecisionTreeClassifier(max_depth=3, random_state=42)
 model.fit(x_train, y_train)
 ```
 
----
-
 ## Post-Pruning (Cost Complexity Pruning)
 - **Definition:**  
   Post-pruning allows the tree to grow fully and then prunes back branches that have little importance, usually based on validation performance.
@@ -76,6 +74,7 @@ for i in range(1, 20):
     model = DecisionTreeClassifier(max_depth=i, random_state=42)
     model.fit(x_train, y_train)
     print(f"Max Depth: {i}, Train Score: {model.score(x_train, y_train):.2f}, Test Score: {model.score(x_test, y_test):.2f}")
+```
 
 ## Notes
 - Pruning helps avoid overfitting and improves model performance on new data.
@@ -83,8 +82,6 @@ for i in range(1, 20):
 - Visualize the effect of pruning parameters to select the best model.
 
 ---
-
-This notebook is a practical guide for understanding and applying pre-pruning and post-pruning in decision
 
 # K-Nearest Neighbour (KNN) Classification
 
@@ -111,11 +108,13 @@ This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm fo
 - Feature scaling is recommended for KNN, but in this example, original features are used.
 - The value of 'k' (number of neighbors) can significantly affect model performance.
 
-
+---
 
 ## Requirements
+
 - Python 3.x
 - pandas
+- numpy
 - matplotlib
 - seaborn
 - scikit-learn
@@ -124,4 +123,4 @@ This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm fo
 
 ---
 
-This notebook is a practical guide for beginners to understand and apply Decision Tree algorithms for both classification and regression problems.
+This notebook is a practical guide for beginners to understand and apply Decision Tree algorithms (classification, regression, pruning) and KNN classification to real-world
