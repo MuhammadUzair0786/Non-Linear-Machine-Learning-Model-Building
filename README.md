@@ -108,7 +108,37 @@ This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm fo
 - Feature scaling is recommended for KNN, but in this example, original features are used.
 - The value of 'k' (number of neighbors) can significantly affect model performance.
 
+--- 
+
+# K-Nearest Neighbour (KNN) Regression: Medical Checkup Charges
+
+This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm for regression to predict medical checkup charges.
+
+## What is KNN Regression?
+- KNN regression predicts the target value for a data point based on the average (or weighted average) of its 'k' nearest neighbors in the feature space.
+- It is a non-parametric, instance-based learning algorithm.
+
+## Steps Covered
+
+- Load and explore the Medical_Checkup_Charges dataset.
+- Visualize data distribution and check for outliers.
+- Handle missing values and encode categorical variables.
+- Scale numerical features for better KNN performance.
+- Split the data into training and testing sets.
+- Train a KNN regressor and tune the value of 'k'.
+- Optionally perform feature selection to improve results.
+- Evaluate model performance using R² score on train and test sets.
+- Predict charges for new data points.
+
+## Notes
+
+- Feature scaling (e.g., StandardScaler) is important for KNN regression.
+- Try different values of 'k' to find the best performance.
+- Removing outliers and irrelevant features can improve accuracy.
+- KNN regression works best with clean, well-preprocessed data.
+
 ---
+
 
 ## Requirements
 
