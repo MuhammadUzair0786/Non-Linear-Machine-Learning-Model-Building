@@ -138,7 +138,33 @@ This notebook demonstrates how to use the K-Nearest Neighbour (KNN) algorithm fo
 - KNN regression works best with clean, well-preprocessed data.
 
 ---
+# Support Vector Machine (SVM) Classification
 
+This notebook demonstrates how to use Support Vector Machine (SVM) for classification tasks using Python and scikit-learn.
+
+## What is SVM?
+- SVM is a powerful supervised learning algorithm used for classification and regression.
+- It finds the optimal hyperplane that best separates different classes in the feature space.
+- SVM works well for both linear and non-linear data (using different kernels).
+
+## Steps Covered
+
+- Load and explore the dataset.
+- Visualize the data distribution using scatter plots.
+- Split the data into training and testing sets.
+- Train an SVM classifier (with linear or other kernels).
+- Evaluate model performance using train and test accuracy.
+- Make predictions for new data points.
+- Visualize the decision boundary using `plot_decision_regions`.
+
+## Notes
+
+- Feature scaling is recommended for SVM, especially with non-linear kernels.
+- You can experiment with different kernels (`linear`, `rbf`, `poly`) for better results.
+- SVM is effective for high-dimensional spaces and when the number of features is greater than the number of samples.
+
+
+This notebook is a practical guide for beginners to understand and apply SVM classification to real-
 
 ## Requirements
 
