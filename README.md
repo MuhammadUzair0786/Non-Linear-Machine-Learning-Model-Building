@@ -166,6 +166,34 @@ This notebook demonstrates how to use Support Vector Machine (SVM) for classific
 
 This notebook is a practical guide for beginners to understand and apply SVM classification to real-
 
+# Support Vector Machine (SVM) Regression
+
+This notebook demonstrates how to use Support Vector Machine (SVM) for regression tasks using Python and scikit-learn.
+
+## What is SVM Regression?
+- SVM regression (SVR) is a supervised learning algorithm used to predict continuous values.
+- It tries to fit the best line (or curve) within a margin, using different kernels (linear, polynomial, RBF) for linear and non-linear data.
+
+## Steps Covered
+
+- Load and explore the regression dataset.
+- Visualize the relationship between features and target variable.
+- Handle missing values and scale numerical features (important for SVM).
+- Split the data into training and testing sets.
+- Train an SVR model (e.g., with RBF kernel).
+- Evaluate model performance using R² score on train and test sets.
+- Visualize the regression curve along with the data points.
+- Predict target values for new inputs.
+
+## Notes
+
+- Feature scaling (e.g., StandardScaler) is important for SVR to perform well.
+- You can experiment with different kernels (`linear`, `rbf`, `poly`) for best results.
+- SVR is effective for capturing both linear and non-linear relationships.
+
+
+This notebook is a practical guide for beginners to understand and apply SVM regression to real-
+
 ## Requirements
 
 - Python 3.x
