@@ -194,6 +194,94 @@ This notebook demonstrates how to use Support Vector Machine (SVM) for regressio
 
 This notebook is a practical guide for beginners to understand and apply SVM regression to real-
 
+---
+
+# Hyperparameter Tuning: Grid Search CV & Randomized Search CV
+
+This README explains how to use **GridSearchCV** and **RandomizedSearchCV** for hyperparameter tuning in machine learning models using scikit-learn.
+
+---
+
+## What is Hyperparameter Tuning?
+
+Hyperparameters are model settings that are not learned from the data but set before training (e.g., `n_neighbors` in KNN, `C` in SVM).  
+Tuning these can significantly improve model performance.
+
+---
+
+## Grid Search CV
+
+- **GridSearchCV** exhaustively tries all combinations of specified hyperparameter values.
+- It uses cross-validation to evaluate each combination and selects the best one based on a scoring metric.
+
+**Example:**
+```python
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsRegressor
+
+param_grid = {
+    'n_neighbors': [3, 5, 7, 9],
+    'weights': ['uniform', 'distance'],
+    'p': [1, 2]
+}
+
+grid = GridSearchCV(
+    estimator=KNeighborsRegressor(),
+    param_grid=param_grid,
+    scoring='r2',        # Use 'accuracy' for classification
+    cv=5,
+    verbose=1
+)
+grid.fit(x_train, y_train)
+
+print("Best Parameters:", grid.best_params_)
+print("Best Score:", grid.best_score_)
+```
+
+---
+
+## Randomized Search CV
+
+- **RandomizedSearchCV** tries a fixed number of random combinations from the parameter grid.
+- Useful when the parameter space is large and exhaustive search is computationally expensive.
+
+**Example:**
+```python
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn.neighbors import KNeighborsRegressor
+
+param_dist = {
+    'n_neighbors': range(2, 20),
+    'weights': ['uniform', 'distance'],
+    'p': [1, 2]
+}
+
+random_search = RandomizedSearchCV(
+    estimator=KNeighborsRegressor(),
+    param_distributions=param_dist,
+    n_iter=10,           # Number of random combinations to try
+    scoring='r2',
+    cv=5,
+    verbose=1,
+    random_state=42
+)
+random_search.fit(x_train, y_train)
+
+print("Best Parameters:", random_search.best_params_)
+print("Best Score:", random_search.best_score_)
+```
+
+---
+
+## When to Use
+
+- **GridSearchCV:** When the parameter space is small and you want to try all combinations.
+- **RandomizedSearchCV:** When the parameter space is large and you want faster results.
+
+---
+
+Hyperparameter tuning helps you find the best model settings for
+
 ## Requirements
 
 - Python 3.x
