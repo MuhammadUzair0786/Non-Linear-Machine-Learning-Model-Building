@@ -282,6 +282,92 @@ print("Best Score:", random_search.best_score_)
 
 Hyperparameter tuning helps you find the best model settings for
 
+# Cross Validation: KFold, LeaveOneOut, and LeavePOut
+
+This section explains different cross-validation techniques available in scikit-learn: **KFold**, **LeaveOneOut**, and **LeavePOut**. These methods help you evaluate your machine learning models more reliably by splitting your data into multiple train/test sets.
+
+---
+
+## What is Cross Validation?
+
+Cross-validation is a technique to assess how well your model generalizes to unseen data. It splits the dataset into several parts (folds), trains the model on some parts, and tests it on the remaining part(s). This process is repeated, and the results are averaged for a more robust estimate of model performance.
+
+---
+
+## KFold Cross Validation
+
+- **KFold** splits the dataset into *k* equal-sized folds.
+- The model is trained on *k-1* folds and tested on the remaining fold.
+- This process repeats *k* times, each time with a different test fold.
+
+**Example:**
+```python
+from sklearn.model_selection import KFold, cross_val_score
+from sklearn.neighbors import KNeighborsRegressor
+
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+model = KNeighborsRegressor()
+scores = cross_val_score(model, x, y, cv=kf, scoring='r2')
+print("KFold CV Scores:", scores)
+print("Average Score:", scores.mean())
+```
+
+---
+
+## LeaveOneOut Cross Validation (LOO or LOOCV)
+
+- **LeaveOneOut** creates as many folds as there are samples in the dataset.
+- Each fold uses a single observation as the test set and the rest as the training set.
+- Useful for very small datasets.
+
+**Example:**
+```python
+from sklearn.model_selection import LeaveOneOut
+
+loo = LeaveOneOut()
+scores = cross_val_score(model, x, y, cv=loo, scoring='r2')
+print("LOO CV Average Score:", scores.mean())
+```
+
+---
+
+## LeavePOut Cross Validation
+
+- **LeavePOut** is a generalization of LeaveOneOut.
+- For each fold, *p* samples are used as the test set, and the rest as the training set.
+- The process is repeated for all possible combinations of *p* samples.
+- Can be computationally expensive for large datasets.
+
+**Example:**
+```python
+from sklearn.model_selection import LeavePOut
+
+lpo = LeavePOut(p=2)
+# Warning: This can be very slow for large datasets!
+scores = cross_val_score(model, x, y, cv=lpo, scoring='r2')
+print("LPO CV Average Score:", scores.mean())
+```
+
+---
+
+## When to Use
+
+- **KFold:** Standard choice for most datasets; balances bias and variance.
+- **LeaveOneOut:** Use for very small datasets where every sample is important.
+- **LeavePOut:** Use for small datasets and when you want to test all possible combinations of *p* test samples.
+
+---
+
+## Notes
+
+- Cross-validation helps prevent overfitting and gives a better estimate of model performance.
+- For large datasets, prefer KFold due to computational efficiency.
+- Always shuffle your data (with `shuffle=True`) if the data is ordered.
+
+---
+
+These cross-validation techniques are essential tools for robust model evaluation in any machine
+
 ## Requirements
 
 - Python 3.x
