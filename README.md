@@ -368,6 +368,26 @@ print("LPO CV Average Score:", scores.mean())
 
 These cross-validation techniques are essential tools for robust model evaluation in any machine
 
+# Random Forest Algorithm: Classification & Regression
+
+This notebook demonstrates how to use the Random Forest algorithm for both classification and regression tasks using scikit-learn.
+
+## What is Random Forest?
+- Random Forest is an ensemble learning method that builds multiple decision trees and combines their results for better accuracy and robustness.
+- It reduces overfitting and improves generalization compared to a single decision tree.
+
+## Steps Covered
+
+- Load and preprocess the dataset.
+- Train a Random Forest Classifier for classification tasks.
+- Train a Random Forest Regressor for regression tasks.
+- Evaluate model performance using train/test scores and confusion matrix (for classification).
+- Make predictions for new data points.
+- Visualize a single tree from the Random Forest.
+
+
+Random Forest is a powerful and versatile algorithm suitable for both classification and regression
+
 ## Requirements
 
 - Python 3.x
